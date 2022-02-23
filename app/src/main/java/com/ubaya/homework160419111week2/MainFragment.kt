@@ -27,14 +27,10 @@ class MainFragment : Fragment() {
         var random1 = (0 until 100).random()
         var random2 = (0 until 100).random()
 
-        //var angka1 = 18
-        //var angka2 = 12
-
         textAngka1.text = random1.toString()
         textAngka2.text = random2.toString()
         buttonSubmit.setOnClickListener {
             var hasilAsli = random1 + random2
-            //var hasilAsli = angka1 + angka2
             val hasil = hasil.text.toString()
             var hasilAkhir = Integer.parseInt(hasil)
             var point = 0
@@ -42,9 +38,13 @@ class MainFragment : Fragment() {
             if (hasilAkhir != hasilAsli){
                 val action = MainFragmentDirections.actionMainFragment2ToResultFragment2(hasilAkhir)
                 Navigation.findNavController(it).navigate(action)
-                point++
             }
             else{
+                var random1 = (0 until 100).random()
+                var random2 = (0 until 100).random()
+
+                textAngka1.text = random1.toString()
+                textAngka2.text = random2.toString()
                 point++
             }
         }
